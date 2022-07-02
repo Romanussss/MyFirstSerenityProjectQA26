@@ -20,7 +20,6 @@ public class LoginSteps extends ScenarioSteps {
     @Step
     public void navigateToLogin() {
         homePage.clickAccountLink();
-        homePage.clickLoginLink();
     }
 
     @Step
@@ -45,5 +44,17 @@ public class LoginSteps extends ScenarioSteps {
         navigateToLogin();
         setCredentials(email, password);
         clickLogin();
+    }
+
+    @Step
+    public void verifySignInErrorMessage(String error) {
+        loginPage.verifyErrorMessage(error);
+
+
+    }
+
+    @Step
+    public void verifyMissingUsernameError(String error) {
+        loginPage.verifySignInErrorMessage(error);
     }
 }

@@ -5,41 +5,40 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("http://testfasttrackit.info/selenium-test/")
+@DefaultUrl("http://qa3.fasttrackit.org:8008/")
 public class HomePage extends PageObject {
 
-    @FindBy(css = ".skip-account .label")
-    private WebElementFacade accountLink;
-    @FindBy(css = "[title='Log In']")
-    private WebElementFacade loginLink;
-    @FindBy(id = "search")
+    @FindBy(css = "#menu-item-1730 > a")
+    private WebElementFacade signIn;
+    @FindBy(css = "#menu-item-1728 > a")
+    private WebElementFacade shoplink;
+    @FindBy(id = "#menu-item-1729 > a")
+    private WebElementFacade checkout;
+    @FindBy(css = "#menu-item-1730 > a")
+    private WebElementFacade myaccount;
+    @FindBy(css = "#masthead > div.site-top-bar.border-bottom > div > div.site-top-bar-right > i")
+    private WebElementFacade searchbutton;
+    @FindBy(css = "input.search-field")
     private WebElementFacade searchField;
-    @FindBy(css = "[title='Search']")
-    private WebElementFacade searchIcon;
-    @FindBy(id = "select-language")
-    private WebElementFacade languageDropdown;
+    @FindBy(css = "input.search-submit")
+    private WebElementFacade searchbutton2;
 
 
     public void clickAccountLink() {
-        clickOn(accountLink);
+        clickOn(signIn);
     }
 
-    public void clickLoginLink() {
-        clickOn(loginLink);
-    }
 
     public void setSearchField(String keyword) {
+        clickOn(searchbutton);
         typeInto(searchField, keyword);
     }
 
+
     public void clickSearchIcon() {
         waitFor(searchField);
-        clickOn(searchIcon);
+        clickOn(searchbutton2);
+
     }
 
-    public void selectLanguage(){
-        selectFromDropdown(languageDropdown, "English");
-        withAction().moveToElement(languageDropdown).build();
-        getAlert().dismiss();
-    }
 }

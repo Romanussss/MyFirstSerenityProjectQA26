@@ -9,21 +9,22 @@ import java.util.List;
 
 public class SearchResultsPage extends PageObject {
 
-    @FindBy(css = ".products-grid li.item")
+    @FindBy(id = "primary")
     private List<WebElementFacade> productsList;
 
-    public boolean checkListForProduct(String productName){
-        for(WebElementFacade element : productsList){
-            if(element.findElement(By.cssSelector(".product-name a")).getText().equalsIgnoreCase(productName)){
+    public boolean checkListForProduct(String productName) {
+        for (WebElementFacade element : productsList) {
+            if (element.findElement(By.cssSelector("h3.entry-title")).getText().equalsIgnoreCase(productName)) {
                 return true;
             }
         }
         return false;
     }
-    public void selectProductFromList(String product){
-        for(WebElementFacade element : productsList){
-            if(element.findElement(By.cssSelector(".product-name a")).getText().equalsIgnoreCase(product)){
-                element.findElement(By.cssSelector("a.product-image")).click();
+
+    public void selectProductFromList(String product) {
+        for (WebElementFacade element : productsList) {
+            if (element.findElement(By.cssSelector("h3.entry-title")).getText().equalsIgnoreCase(product)) {
+                element.findElement(By.cssSelector("a")).click();
                 break;
             }
         }

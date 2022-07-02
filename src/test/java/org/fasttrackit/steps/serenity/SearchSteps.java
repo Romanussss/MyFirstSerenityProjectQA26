@@ -12,12 +12,13 @@ public class SearchSteps extends ScenarioSteps {
     private SearchResultsPage searchResultsPage;
 
     @Step
-    public void doSearch(String keyword){
+    public void doSearch(String keyword) {
         homePage.setSearchField(keyword);
         homePage.clickSearchIcon();
     }
+
     @Step
-    public void verifyProductInResults(String productName){
+    public void verifyProductInResults(String productName) {
         Assert.assertTrue(searchResultsPage.checkListForProduct(productName));
     }
 }
