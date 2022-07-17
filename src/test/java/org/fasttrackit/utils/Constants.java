@@ -7,22 +7,22 @@ public class Constants {
     public static final String USER_EMAIL = " vladhodisan@yahoo.com";
     public static final String USER_PASS = "Passwordone343!";
     public static String getSaltString;
-    public static final String USER_RANDOM_EMAIL = getSaltString()+"@gmail.com";
+    public static final String USER_RANDOM_EMAIL = randomUserEmailGenerator()+"@gmail.com";
     public static String randomPasswordGenerator;
     public static final  String USER_RANDOM_PASSWORD = randomPasswordGenerator() ;
-    public static final String RANDOM_USER =getSaltString();
 
 
 
 
 
-    protected static String getSaltString() {
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
+    protected static String randomUserEmailGenerator() {
+        String EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 10) {
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
+            int index = (int) (rnd.nextFloat() * EMAIL.length());
+            salt.append(EMAIL.charAt(index));
         }
         String saltStr = salt.toString();
         return saltStr;

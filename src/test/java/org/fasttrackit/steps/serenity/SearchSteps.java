@@ -21,4 +21,12 @@ public class SearchSteps extends ScenarioSteps {
     public void verifyProductInResults(String productName) {
         Assert.assertTrue(searchResultsPage.checkListForProduct(productName));
     }
+    @Step
+    public void changeItemSorting(String label){
+        searchResultsPage.selectSortBy(label);
+    }
+@Step
+    public void verifyCorrectSortingOptionIsSelected(String label){
+        Assert.assertTrue(searchResultsPage.verifyCorrectItemOrderIsSelected(label));
+}
 }

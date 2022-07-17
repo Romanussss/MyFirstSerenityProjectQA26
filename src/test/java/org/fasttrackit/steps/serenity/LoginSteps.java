@@ -5,6 +5,9 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.fasttrackit.pages.AccountPage;
 import org.fasttrackit.pages.HomePage;
 import org.fasttrackit.pages.LoginPage;
+import org.fasttrackit.utils.Constants;
+import org.junit.Assert;
+import org.openqa.selenium.support.ui.Wait;
 
 public class LoginSteps extends ScenarioSteps {
 
@@ -56,5 +59,13 @@ public class LoginSteps extends ScenarioSteps {
     @Step
     public void verifyMissingUsernameError(String error) {
         loginPage.verifySignInErrorMessage(error);
+    }
+
+    @Step
+    public void resetPassword() {
+
+        loginPage.clickLostPasswordButton();
+
+
     }
 }

@@ -11,6 +11,9 @@ public class SearchResultsPage extends PageObject {
 
     @FindBy(id = "primary")
     private List<WebElementFacade> productsList;
+    @FindBy(css = "select.orderby")
+    private WebElementFacade sortByDropdownMenu;
+
 
     public boolean checkListForProduct(String productName) {
         for (WebElementFacade element : productsList) {
@@ -27,6 +30,25 @@ public class SearchResultsPage extends PageObject {
                 element.findElement(By.cssSelector("a")).click();
                 break;
             }
+        }
+
+
+    }
+
+    public void selectSortBy(String label) {
+        selectFromDropdown(sortByDropdownMenu, label);
+    }
+
+
+    public boolean verifyCorrectItemOrderIsSelected(String label) {
+
+
+        if (sortByDropdownMenu.getFirstSelectedOptionVisibleText() == label)
+            return true;
+        else {
+            return false;
+
+
         }
     }
 }

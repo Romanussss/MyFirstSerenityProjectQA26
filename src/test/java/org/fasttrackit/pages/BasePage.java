@@ -4,10 +4,19 @@ import net.thucydides.core.pages.PageObject;
 
 public class BasePage extends PageObject {
 
-    public int getPriceFromString(String price){
-String priceFinal =price.replace(",","").replace("lei","");
+    public int getPriceFromString(String price) {
+        String priceFinal = price.replace("lei","").replace(",","").replace("Subtotal","").replace(" \"\" ","").trim();
+        try{
+            int a = Integer.parseInt(priceFinal);
+        }catch (NumberFormatException nfe){
+            System.out.println("NumberFormat Exception: invalid input string");
+        }
+        System.out.println("Continuing execution...");
         return Integer.parseInt(priceFinal);
     }
 
+
     }
+
+
 

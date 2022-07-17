@@ -2,8 +2,11 @@ package org.fasttrackit.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.locators.WaitForWebElements;
 import net.thucydides.core.pages.PageObject;
 import org.fasttrackit.utils.Constants;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.time.Duration;
 
@@ -19,6 +22,13 @@ public class LoginPage extends PageObject {
     private WebElementFacade missingUsernameError;
     @FindBy(css = "#post-13 > div > div > ul > li")
     private WebElementFacade signInErrorMessage;
+    @FindBy(css = "#customer_login > div.u-column1.col-1 > form > p.woocommerce-LostPassword.lost_password > a")
+    private WebElementFacade lostYourPasswordButton;
+    @FindBy(id = "user_login")
+    private WebElementFacade lostYourPasswordTextField;
+    @FindBy(css = "#post-13 > div > div > div")
+    private WebElementFacade passwordResetAlert;
+
 
     public void setEmailField(String email) {
         typeInto(emailField, email);
@@ -43,7 +53,17 @@ public class LoginPage extends PageObject {
         signInErrorMessage.shouldContainOnlyText(error);
 
     }
+
+    public void clickLostPasswordButton() {
+       lostYourPasswordButton.click();
+
+
+
+
+    }
 }
+
+
 
 
 

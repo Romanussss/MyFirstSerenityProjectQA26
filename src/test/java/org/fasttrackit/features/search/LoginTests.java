@@ -23,7 +23,6 @@ public class LoginTests extends BaseTest {
         loginSteps.setCredentials("vladhodisan@yahoo.com ", "123456");
         loginSteps.clickLogin();
         loginSteps.verifySignInErrorMessage("ERROR: The password you entered for the email address vladhodisan@yahoo.com is incorrect. Lost your password?");
-
     }
 
     @Test
@@ -34,6 +33,17 @@ public class LoginTests extends BaseTest {
         loginSteps.verifyMissingUsernameError("Error: Username is required.");
     }
 
+    @Test
+    public void verifyPasswordResetTest() {
+        loginSteps.navigateToHomepage();
+        loginSteps.navigateToLogin();
+        loginSteps.resetPassword();
+        accountSteps.inputResetPasswordField();
+        accountSteps.verifyPasswordResetSuccesMessage("Password reset email has been sent.");
+
+
+    }
 
 }
+
 

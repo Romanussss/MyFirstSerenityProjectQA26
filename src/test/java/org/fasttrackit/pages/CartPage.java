@@ -7,6 +7,8 @@ import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
 public class CartPage extends BasePage {
 
     @FindBy(css = "#main > div.woocommerce-message")
@@ -17,10 +19,18 @@ public class CartPage extends BasePage {
     private WebElementFacade productRemovedAlert;
     @FindBy(css = "a.button.wc-forward")
     private WebElementFacade viewCartButton;
-    @FindBy(css = ".product-subtotal  ")
-    private ListOfWebElementFacades listofProductsSubtotalSpan;
+    @FindBy(css = ".product-subtotal > span.woocommerce-Price-amount.amount")
+    private List<WebElementFacade> listofProductsSubtotalSpan;
     @FindBy(css = ".cart-subtotal ")
     private WebElementFacade cartSubtotalPriceSpan;
+    @FindBy(css = ".input-text.qty.text")
+    private WebElementFacade cartQuantityField;
+    @FindBy(css = "input.button")
+    private WebElementFacade couponButton;
+    @FindBy(css = "ul.woocommerce-error")
+    private WebElementFacade couponAllertMessage;
+    @FindBy(css = "input#coupon_code.input-text")
+    private WebElementFacade couponCodeTextField;
 
 
     public void verifySuccessMessage(String alertMessage) {
@@ -44,10 +54,36 @@ public class CartPage extends BasePage {
         }
         return sum;
     }
-    public boolean isSubtotalPriceCalculatedCorrectly(){
-      int subtotalPrice = getPriceFromString(cartSubtotalPriceSpan.getText());
-      int expected = Integer.parseInt(cartSubtotalPriceSpan.getText());
-      return  subtotalPrice == expected;
+
+    public boolean isSubtotalPriceCalculatedCorrectly() {
+        int subtotalPrice = getPriceFromString(cartSubtotalPriceSpan.getText());
+        int expected = getSubtotalPriceFromProducts();
+        System.out.println("ok");
+        return subtotalPrice == expected;
     }
 
+    public int getCartQuantity() {
+        int a = Integer.parseInt(cartQuantityField.getValue());
+        System.out.println(a);
+        System.out.println("Cart");
+        return a;
+    }
+
+    public void clickCouponButton() {
+        couponButton.click();
+    }
+
+    public void verifyEmptyCouponMessage(String alertMessage){
+        couponAllertMessage.getText();
+        couponAllertMessage.shouldContainOnlyText("Please enter a coupon code.");
+    }
+public void useFakeCouponCode(String fakeCouponCode){
+        couponCodeTextField.select();
+        typeInto(couponCodeTextField,fakeCouponCode);
+
+}
+public void couponAllertMessages(String couponAllert){
+       couponAllertMessage.shouldContainOnlyText(couponAllert);
+
+}
 }

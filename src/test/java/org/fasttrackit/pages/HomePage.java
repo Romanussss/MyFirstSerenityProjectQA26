@@ -12,9 +12,9 @@ public class HomePage extends PageObject {
     private WebElementFacade signIn;
     @FindBy(css = "#menu-item-1728 > a")
     private WebElementFacade shoplink;
-    @FindBy(id = "#menu-item-1729 > a")
+    @FindBy(id = "menu-item-1729")
     private WebElementFacade checkout;
-    @FindBy(css = "#menu-item-1730 > a")
+    @FindBy(id = "menu-item-1730")
     private WebElementFacade myaccount;
     @FindBy(css = "#masthead > div.site-top-bar.border-bottom > div > div.site-top-bar-right > i")
     private WebElementFacade searchbutton;
@@ -40,5 +40,7 @@ public class HomePage extends PageObject {
         clickOn(searchbutton2);
 
     }
+
+
 
 }

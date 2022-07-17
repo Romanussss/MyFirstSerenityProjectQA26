@@ -5,14 +5,14 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
 
-public class ProductPage extends PageObject {
+public class ProductPage extends BasePage {
 
     @FindBy(css = "button.single_add_to_cart_button.button,alt")
     private WebElementFacade addToCartButton;
     @FindBy(css = "i.fa.fa-shopping-cart")
     private WebElementFacade viewCartButton;
-    @FindBy(css = "div.screen-reader-text")
-    private WebElementFacade productQuantity;
+    @FindBy(css = ".input-text.qty.text")
+    private WebElementFacade inputProductQuantity;
 
     public void clickAddToCartButton() {
         clickOn(addToCartButton);
@@ -23,10 +23,18 @@ public class ProductPage extends PageObject {
     }
 
     public void adjustProductQuantity() {
-//       waitFor(productQuantity).waitUntilClickable();
-//    productQuantity.selectByValue("5");
-       typeInto(productQuantity,"5");
+        waitFor(inputProductQuantity).waitUntilClickable();
+        inputProductQuantity.select();
+        typeInto(inputProductQuantity, "5");
 
+
+    }
+
+    public int getProductQuantity() {
+        int a = Integer.parseInt(inputProductQuantity.getValue());
+        System.out.println(a);
+        System.out.println("ProductPage");
+        return a;
     }
 }
 

@@ -21,4 +21,11 @@ public class SearchTest extends BaseTest{
         searchSteps.doSearch(searchItem);
         searchSteps.verifyProductInResults("Beanie with Logo");
     }
+    @Test
+    public void test(){
+        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
+        accountSteps.goToShop();
+        searchSteps.changeItemSorting("Sort by newness");
+        searchSteps.verifyCorrectSortingOptionIsSelected("Sort by newness");
+    }
 }
