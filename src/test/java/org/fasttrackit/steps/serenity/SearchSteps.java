@@ -24,9 +24,20 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void changeItemSorting(String label){
         searchResultsPage.selectSortBy(label);
+
     }
 @Step
     public void verifyCorrectSortingOptionIsSelected(String label){
-        Assert.assertTrue(searchResultsPage.verifyCorrectItemOrderIsSelected(label));
+//        searchResultsPage.verifyCorrectItemOrderIsSelected(label);
+     Assert.assertTrue(searchResultsPage.verifyCorrectItemOrderIsSelected(label));
+
+
 }
+
+
 }
+
+
+
+
+

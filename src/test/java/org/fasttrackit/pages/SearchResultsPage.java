@@ -13,6 +13,8 @@ public class SearchResultsPage extends PageObject {
     private List<WebElementFacade> productsList;
     @FindBy(css = "select.orderby")
     private WebElementFacade sortByDropdownMenu;
+    @FindBy(css = "#main > form")
+    private WebElementFacade orderingForm;
 
 
     public boolean checkListForProduct(String productName) {
@@ -37,6 +39,7 @@ public class SearchResultsPage extends PageObject {
 
     public void selectSortBy(String label) {
         selectFromDropdown(sortByDropdownMenu, label);
+        sortByDropdownMenu.getText();
     }
 
 
@@ -51,4 +54,9 @@ public class SearchResultsPage extends PageObject {
 
         }
     }
+
+
+
+
+
 }
