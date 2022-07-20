@@ -39,14 +39,16 @@ public class SearchResultsPage extends PageObject {
 
     public void selectSortBy(String label) {
         selectFromDropdown(sortByDropdownMenu, label);
-        sortByDropdownMenu.getText();
+
+        System.out.println(sortByDropdownMenu.getText());
     }
 
 
     public boolean verifyCorrectItemOrderIsSelected(String label) {
 
+        System.out.println(sortByDropdownMenu.getFirstSelectedOptionVisibleText());
+        if (sortByDropdownMenu.getFirstSelectedOptionVisibleText() .equals(label) )
 
-        if (sortByDropdownMenu.getFirstSelectedOptionVisibleText() == label)
             return true;
         else {
             return false;
