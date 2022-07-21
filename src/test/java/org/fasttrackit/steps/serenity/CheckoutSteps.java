@@ -19,17 +19,30 @@ public class CheckoutSteps extends ScenarioSteps {
     @Step
     public void placeOrder() {
         checkoutPage.placeOrder();
+
+
     }
 
     @Step
     public void verifySuccesfullOrder(String message) {
         checkoutPage.orderSuccesMessage(message);
-        Assert.assertTrue(message == "Order details");
+        Assert.assertTrue(message .equals("Order details"));
     }
 
 
     @Step
     public void verifyCheckoutCouponMessage() {
         Assert.assertTrue(checkoutPage.checkoutCouponMessage());
+    }
+
+    @Step
+    public void verifyPriceIsCalculatedCorectly() {
+        Assert.assertTrue(checkoutPage.checkCheckoutPriceandFinalOrderprice());
+    }
+
+    @Step
+    public void verifyReturningCustomerMessageBox(String message){
+        checkoutPage.checkReturningCustomerMessageBox(message);
+        Assert.assertTrue(message.equals("Returning customer? Click here to login"));
     }
 }

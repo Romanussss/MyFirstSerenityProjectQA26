@@ -8,10 +8,14 @@ public class AccountTest extends BaseTest{
 
 
     @Test
-    public void verifySuccesfullLogOut(){
+    public void verifySuccesfullLogOutTest(){
         loginSteps.doLogin(Constants.USER_EMAIL, Constants.USER_PASS);
         accountSteps.logOut();
         accountSteps.LogOutAssertion();
     }
-
+@Test
+    public void verifyAccountButtonsTest(){
+    loginSteps.doLogin(Constants.USER_EMAIL, Constants.USER_PASS);
+    accountSteps.verifyIfAccountButtonsAreInteractible();
+}
 }

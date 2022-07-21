@@ -31,6 +31,13 @@ public class CheckoutPage extends BasePage {
     private WebElementFacade orderSuccesMessage;
     @FindBy(css = "#post-12 > div > div > div")
     private WebElementFacade clickHereToEnterCouponMessage;
+    @FindBy(css = ".cart-subtotal")
+    private WebElementFacade checkoutTotal;
+    @FindBy(css = "tr.order-total")
+    private WebElementFacade orderTotal;
+    @FindBy(css = "#post-12 > div > div > div:nth-child(1)")
+    private WebElementFacade returningCustomerMessageBox;
+
 
 
     public void completeCheckoutFields() {
@@ -66,5 +73,17 @@ public class CheckoutPage extends BasePage {
         }
     }
 
+    public boolean checkCheckoutPriceandFinalOrderprice() {
+        int checkoutPrice = getPriceFromString(checkoutTotal.getText());
+        System.out.println(checkoutTotal.getText());
+        int expected = getPriceFromString(orderTotal.getText());
+        System.out.println(orderTotal.getText());
+
+        return checkoutPrice == expected;
+    }
+
+public void checkReturningCustomerMessageBox(String message){returningCustomerMessageBox.shouldContainOnlyText(message);
 
 }
+}
+

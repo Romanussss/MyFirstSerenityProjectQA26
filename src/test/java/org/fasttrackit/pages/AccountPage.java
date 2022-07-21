@@ -26,6 +26,15 @@ public class AccountPage extends PageObject {
     private WebElementFacade logOutAssertion;
     @FindBy(css = "#menu-item-1728 > a")
     private WebElementFacade shopButton;
+    @FindBy(css = "#post-13 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--orders > a")
+    private WebElementFacade ordersButton;
+    @FindBy(css = "#post-13 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads > a")
+    private WebElementFacade downloadButton;
+    @FindBy(css = "#post-13 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--edit-address > a")
+    private WebElementFacade adressesButton;
+    @FindBy(css = "#post-13 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--edit-account > a")
+    private WebElementFacade accountDetailsButton;
+
 
 
     public void verifyWelcomeMessage(String userName) {
@@ -62,5 +71,27 @@ public class AccountPage extends PageObject {
         }
 
     }
-public void clickShopButton(){shopButton.click();}
+
+    public void clickShopButton() {
+        shopButton.click();
+    }
+
+
+    public boolean checkAccountButtonsAreInteractible() {
+           if (ordersButton.isClickable()&&ordersButton.isCurrentlyVisible()
+                   &&downloadButton.isClickable()&&downloadButton.isCurrentlyVisible()
+                   &&adressesButton.isClickable()&&adressesButton.isCurrentlyVisible()
+                   &&accountDetailsButton.isClickable()&&accountDetailsButton.isCurrentlyVisible()
+                   &&logOutButton.isClickable()&&logOutButton.isCurrentlyVisible())
+
+
+            return true;
+
+        else {
+            return false;
+
+
+
+        }
+    }
 }

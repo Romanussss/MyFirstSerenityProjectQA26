@@ -16,7 +16,7 @@ public class AccountSteps extends ScenarioSteps {
     @Step
     public void verifyPasswordResetSuccesMessage(String alert) {
         accountPage.verifyPasswordResetAlert(alert);
-        Assert.assertTrue(alert == "Password reset email has been sent.");
+        Assert.assertTrue(alert.equals("Password reset email has been sent."));
     }
 
 
@@ -44,6 +44,10 @@ public class AccountSteps extends ScenarioSteps {
 @Step
     public void goToShop(){
         accountPage.clickShopButton();
+}
+
+@Step public void verifyIfAccountButtonsAreInteractible(){
+        Assert.assertTrue(accountPage.checkAccountButtonsAreInteractible());
 }
 }
 
