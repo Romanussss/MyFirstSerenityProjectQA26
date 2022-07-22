@@ -7,7 +7,7 @@ public class CheckoutTest extends BaseTest {
 
 
     @Test
-    public void verifySuccesfullPurchase() {
+    public void verifySuccesfullPurchaseTest() {
         loginSteps.doLogin(Constants.USER_EMAIL, Constants.USER_PASS);
         searchSteps.doSearch("Beanie");
         productSteps.selectProductFromList("Beanie with Logo");
@@ -21,7 +21,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void verifyCheckoutCouponMessage() {
+    public void verifyCheckoutCouponMessageTest() {
         loginSteps.doLogin(Constants.USER_EMAIL, Constants.USER_PASS);
         accountSteps.goToCheckout();
         checkoutSteps.verifyCheckoutCouponMessage();
@@ -47,5 +47,15 @@ public class CheckoutTest extends BaseTest {
         accountSteps.goToCheckout();
         checkoutSteps.verifyReturningCustomerMessageBox("Returning customer? Click here to login");
 
+    }
+    @Test
+    public void verifyMandatoryFieldsAlertTest(){
+        loginSteps.navigateToHomepage();
+        searchSteps.doSearch("Beanie");
+        productSteps.selectProductFromList("Beanie with Logo");
+        productSteps.clickAddToCart();
+        accountSteps.goToCheckout();
+        checkoutSteps.placeOrder();
+        checkoutSteps.verifyMandatoryFieldsAlert();
     }
 }

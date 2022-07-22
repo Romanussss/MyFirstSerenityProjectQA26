@@ -3,6 +3,8 @@ package org.fasttrackit.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
+
 public class CheckoutPage extends BasePage {
 
     @FindBy(id = "billing_first_name")
@@ -37,6 +39,8 @@ public class CheckoutPage extends BasePage {
     private WebElementFacade orderTotal;
     @FindBy(css = "#post-12 > div > div > div:nth-child(1)")
     private WebElementFacade returningCustomerMessageBox;
+    @FindBy(css = "#post-12 > div > div > form.checkout.woocommerce-checkout > div.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout > ul")
+    private WebElementFacade emptyRequiredFieldsAlert;
 
 
 
@@ -73,7 +77,7 @@ public class CheckoutPage extends BasePage {
         }
     }
 
-    public boolean checkCheckoutPriceandFinalOrderprice() {
+    public boolean checkCheckoutPriceandFinalOrderPrice() {
         int checkoutPrice = getPriceFromString(checkoutTotal.getText());
         System.out.println(checkoutTotal.getText());
         int expected = getPriceFromString(orderTotal.getText());
@@ -83,6 +87,14 @@ public class CheckoutPage extends BasePage {
     }
 
 public void checkReturningCustomerMessageBox(String message){returningCustomerMessageBox.shouldContainOnlyText(message);
+
+}
+public boolean checkRequiredFieldsAlert(){
+        if (emptyRequiredFieldsAlert.isCurrentlyVisible())
+            return true;
+        else{
+            return false;
+        }
 
 }
 }

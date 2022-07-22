@@ -22,10 +22,17 @@ public class SearchTest extends BaseTest{
         searchSteps.verifyProductInResults("Beanie with Logo");
     }
     @Test
-    public void verifySortingDropdownMenu(){
+    public void verifySortingDropdownMenuTest(){
         loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
         accountSteps.goToShop();
         searchSteps.changeItemSorting("Sort by newness");
         searchSteps.verifyCorrectSortingOptionIsSelected("SORT BY NEWNESS");
     }
+    @Test
+    public void verifyCategoriesButtonsAreInteractible(){
+        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASS);
+        accountSteps.goToShop();
+        searchSteps.checkCategoriesButtonsAreInteractible();
+    }
+
 }

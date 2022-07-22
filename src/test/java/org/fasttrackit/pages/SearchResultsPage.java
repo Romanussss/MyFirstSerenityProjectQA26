@@ -15,6 +15,8 @@ public class SearchResultsPage extends PageObject {
     private WebElementFacade sortByDropdownMenu;
     @FindBy(css = "#main > form")
     private WebElementFacade orderingForm;
+    @FindBy(id = "categories-2")
+    private WebElementFacade categoriesSection;
 
 
     public boolean checkListForProduct(String productName) {
@@ -47,7 +49,7 @@ public class SearchResultsPage extends PageObject {
     public boolean verifyCorrectItemOrderIsSelected(String label) {
 
         System.out.println(sortByDropdownMenu.getFirstSelectedOptionVisibleText());
-        if (sortByDropdownMenu.getFirstSelectedOptionVisibleText() .equals(label) )
+        if (sortByDropdownMenu.getFirstSelectedOptionVisibleText().equals(label))
 
             return true;
         else {
@@ -57,8 +59,14 @@ public class SearchResultsPage extends PageObject {
         }
     }
 
+    public boolean checkCategoriesButtonsAreVisible() {
+        if (categoriesSection.isCurrentlyVisible() && categoriesSection.isClickable())
+            return true;
+        else {
+            return false;
 
 
-
+        }
+    }
 
 }

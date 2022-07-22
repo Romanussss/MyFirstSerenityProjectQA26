@@ -71,11 +71,9 @@ public class AccountPage extends PageObject {
         }
 
     }
-
     public void clickShopButton() {
         shopButton.click();
     }
-
 
     public boolean checkAccountButtonsAreInteractible() {
            if (ordersButton.isClickable()&&ordersButton.isCurrentlyVisible()
@@ -83,15 +81,9 @@ public class AccountPage extends PageObject {
                    &&adressesButton.isClickable()&&adressesButton.isCurrentlyVisible()
                    &&accountDetailsButton.isClickable()&&accountDetailsButton.isCurrentlyVisible()
                    &&logOutButton.isClickable()&&logOutButton.isCurrentlyVisible())
-
-
             return true;
-
         else {
             return false;
-
-
-
         }
     }
 }
