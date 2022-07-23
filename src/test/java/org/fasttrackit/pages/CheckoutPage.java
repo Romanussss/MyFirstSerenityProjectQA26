@@ -82,7 +82,6 @@ public class CheckoutPage extends BasePage {
         System.out.println(checkoutTotal.getText());
         int expected = getPriceFromString(orderTotal.getText());
         System.out.println(orderTotal.getText());
-
         return checkoutPrice == expected;
     }
 

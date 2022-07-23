@@ -17,6 +17,8 @@ public class SearchResultsPage extends PageObject {
     private WebElementFacade orderingForm;
     @FindBy(id = "categories-2")
     private WebElementFacade categoriesSection;
+    @FindBy(css = "#main > nav.woocommerce-pagination > ul")
+    private WebElementFacade pagination;
 
 
     public boolean checkListForProduct(String productName) {
@@ -41,14 +43,10 @@ public class SearchResultsPage extends PageObject {
 
     public void selectSortBy(String label) {
         selectFromDropdown(sortByDropdownMenu, label);
-
-        System.out.println(sortByDropdownMenu.getText());
     }
 
 
     public boolean verifyCorrectItemOrderIsSelected(String label) {
-
-        System.out.println(sortByDropdownMenu.getFirstSelectedOptionVisibleText());
         if (sortByDropdownMenu.getFirstSelectedOptionVisibleText().equals(label))
 
             return true;
@@ -69,4 +67,12 @@ public class SearchResultsPage extends PageObject {
         }
     }
 
+    public boolean checkPaginationIsInteractible() {
+        if (categoriesSection.isCurrentlyVisible() && categoriesSection.isClickable())
+            return true;
+        else {
+            return false;
+
+        }
+    }
 }

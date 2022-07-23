@@ -38,6 +38,11 @@ public class SearchSteps extends ScenarioSteps {
     public void checkCategoriesButtonsAreInteractible(){
         Assert.assertTrue(searchResultsPage.checkCategoriesButtonsAreVisible());
 }
+@Step
+    public void checkPaginationisInteractible(){
+        Assert.assertTrue(searchResultsPage.checkPaginationIsInteractible());
+
+}
 }
 
 
