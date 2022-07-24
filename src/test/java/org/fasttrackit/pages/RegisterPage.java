@@ -18,6 +18,10 @@ public class RegisterPage extends PageObject {
     private WebElementFacade registerButton;
     @FindBy(css = "#post-13 > div > div > ul > li")
     private WebElementFacade registrationErrorMessage;
+    @FindBy(css = "#customer_login > div.u-column2.col-2 > form > p:nth-child(2) > div")
+    private WebElementFacade weakPassAlert;
+    @FindBy(css = "#customer_login > div.u-column2.col-2 > form > p:nth-child(2) > small")
+    private WebElementFacade weakPassHint;
 
     public void setEmailField(String email) {
         typeInto(emailField, email);
@@ -37,6 +41,21 @@ public class RegisterPage extends PageObject {
         registrationErrorMessage.shouldContainOnlyText(error);
 
     }
+public boolean checkWeakPassAndHintareVisible(){
+    System.out.println(weakPassHint.getText());
+    System.out.println(weakPassAlert.getText());
+        if (weakPassAlert.isCurrentlyVisible()
+                &&weakPassHint.isCurrentlyVisible()
+                &&weakPassAlert.getText().equals
+                ("Very weak - Please enter a stronger password.")
+                &&weakPassHint.getText().equals
+                ("Hint: The password should be at least twelve characters long." +
+                        " To make it stronger, use upper and lower case letters, numbers, and symbols like ! \" ? $ % ^ & )."))
+            return true;
+        else{
+            return false;
 
+        }
+}
 
 }

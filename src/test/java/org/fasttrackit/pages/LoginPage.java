@@ -55,9 +55,7 @@ public class LoginPage extends PageObject {
     }
 
     public void clickLostPasswordButton() {
-       lostYourPasswordButton.click();
-
-
+        lostYourPasswordButton.click();
 
 
     }

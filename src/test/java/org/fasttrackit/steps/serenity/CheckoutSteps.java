@@ -26,7 +26,7 @@ public class CheckoutSteps extends ScenarioSteps {
     @Step
     public void verifySuccesfullOrder(String message) {
         checkoutPage.orderSuccesMessage(message);
-        Assert.assertTrue(message .equals("Order details"));
+        Assert.assertEquals("Order details", message);
     }
 
 
@@ -41,14 +41,14 @@ public class CheckoutSteps extends ScenarioSteps {
     }
 
     @Step
-    public void verifyReturningCustomerMessageBox(String message){
+    public void verifyReturningCustomerMessageBox(String message) {
         checkoutPage.checkReturningCustomerMessageBox(message);
-        Assert.assertTrue(message.equals("Returning customer? Click here to login"));
+        Assert.assertEquals("Returning customer? Click here to login", message);
     }
+
     @Step
-    public void verifyMandatoryFieldsAlert(){
+    public void verifyMandatoryFieldsAlert() {
         Assert.assertTrue(checkoutPage.checkRequiredFieldsAlert());
-        System.out.println(checkoutPage.checkRequiredFieldsAlert());
     }
 
 }

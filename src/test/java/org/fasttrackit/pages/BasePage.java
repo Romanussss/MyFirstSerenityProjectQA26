@@ -6,17 +6,17 @@ import net.thucydides.core.pages.PageObject;
 public class BasePage extends PageObject {
 
     public int getPriceFromString(String price) {
-        String priceFinal = price.replace("lei","")
-                .replace(",","")
-                .replace("Subtotal","")
-                .replace(" \"\" ","")
+        String priceFinal = price.replace("lei", "")
+                .replace(",", "")
+                .replace("Subtotal", "")
+                .replace(" \"\" ", "")
                 .trim()
-                .replace("Total","")
+                .replace("Total", "")
                 .trim();
 
-        try{
+        try {
             int a = Integer.parseInt(priceFinal);
-        }catch (NumberFormatException nfe){
+        } catch (NumberFormatException nfe) {
             System.out.println("NumberFormat Exception: invalid input string");
         }
         System.out.println("Continuing execution...");

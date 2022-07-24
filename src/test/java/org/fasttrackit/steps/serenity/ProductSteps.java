@@ -16,14 +16,17 @@ public class ProductSteps extends ScenarioSteps {
     public void selectProductFromList(String product) {
         searchResultsPage.selectProductFromList(product);
     }
+
     @Step
-    public void goToCart(){
+    public void goToCart() {
         productPage.viewCart();
     }
+
     @Step
-    public void selectQuantity(){
+    public void selectQuantity() {
         productPage.adjustProductQuantity();
     }
+
     @Step
     public void clickAddToCart() {
         productPage.clickAddToCartButton();

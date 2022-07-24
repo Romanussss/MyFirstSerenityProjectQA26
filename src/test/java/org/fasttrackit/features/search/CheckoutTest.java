@@ -38,8 +38,9 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.placeOrder();
         checkoutSteps.verifyPriceIsCalculatedCorectly();
     }
+
     @Test
-    public void verifyReturningCustomerMessageTest (){
+    public void verifyReturningCustomerMessageTest() {
         loginSteps.navigateToHomepage();
         searchSteps.doSearch("Beanie");
         productSteps.selectProductFromList("Beanie with Logo");
@@ -48,8 +49,9 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.verifyReturningCustomerMessageBox("Returning customer? Click here to login");
 
     }
+
     @Test
-    public void verifyMandatoryFieldsAlertTest(){
+    public void verifyMandatoryFieldsAlertTest() {
         loginSteps.navigateToHomepage();
         searchSteps.doSearch("Beanie");
         productSteps.selectProductFromList("Beanie with Logo");

@@ -21,28 +21,31 @@ public class SearchSteps extends ScenarioSteps {
     public void verifyProductInResults(String productName) {
         Assert.assertTrue(searchResultsPage.checkListForProduct(productName));
     }
+
     @Step
-    public void changeItemSorting(String label){
+    public void changeItemSorting(String label) {
         searchResultsPage.selectSortBy(label);
 
     }
-@Step
-    public void verifyCorrectSortingOptionIsSelected(String label){
+
+    @Step
+    public void verifyCorrectSortingOptionIsSelected(String label) {
 //        searchResultsPage.verifyCorrectItemOrderIsSelected(label);
-     Assert.assertTrue(searchResultsPage.verifyCorrectItemOrderIsSelected(label));
+        Assert.assertTrue(searchResultsPage.verifyCorrectItemOrderIsSelected(label));
 
 
-}
+    }
 
-@Step
-    public void checkCategoriesButtonsAreInteractible(){
+    @Step
+    public void checkCategoriesButtonsAreInteractible() {
         Assert.assertTrue(searchResultsPage.checkCategoriesButtonsAreVisible());
-}
-@Step
-    public void checkPaginationisInteractible(){
+    }
+
+    @Step
+    public void checkPaginationisInteractible() {
         Assert.assertTrue(searchResultsPage.checkPaginationIsInteractible());
 
-}
+    }
 }
 
 

@@ -36,7 +36,6 @@ public class AccountPage extends PageObject {
     private WebElementFacade accountDetailsButton;
 
 
-
     public void verifyWelcomeMessage(String userName) {
         welcomeText.shouldContainOnlyText(userName);
     }
@@ -71,16 +70,17 @@ public class AccountPage extends PageObject {
         }
 
     }
+
     public void clickShopButton() {
         shopButton.click();
     }
 
     public boolean checkAccountButtonsAreInteractible() {
-           if (ordersButton.isClickable()&&ordersButton.isCurrentlyVisible()
-                   &&downloadButton.isClickable()&&downloadButton.isCurrentlyVisible()
-                   &&adressesButton.isClickable()&&adressesButton.isCurrentlyVisible()
-                   &&accountDetailsButton.isClickable()&&accountDetailsButton.isCurrentlyVisible()
-                   &&logOutButton.isClickable()&&logOutButton.isCurrentlyVisible())
+        if (ordersButton.isClickable() && ordersButton.isCurrentlyVisible()
+                && downloadButton.isClickable() && downloadButton.isCurrentlyVisible()
+                && adressesButton.isClickable() && adressesButton.isCurrentlyVisible()
+                && accountDetailsButton.isClickable() && accountDetailsButton.isCurrentlyVisible()
+                && logOutButton.isClickable() && logOutButton.isCurrentlyVisible())
             return true;
         else {
             return false;

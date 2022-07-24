@@ -32,22 +32,24 @@ public class AccountSteps extends ScenarioSteps {
     }
 
     @Step
-    public void logOut(){accountPage.clickLogOut();}
-
+    public void logOut() {
+        accountPage.clickLogOut();
+    }
 
 
     @Step
-    public void LogOutAssertion(){
+    public void LogOutAssertion() {
         Assert.assertTrue(accountPage.logOutAssertion());
     }
 
-@Step
-    public void goToShop(){
+    @Step
+    public void goToShop() {
         accountPage.clickShopButton();
-}
+    }
 
-@Step public void verifyIfAccountButtonsAreInteractible(){
+    @Step
+    public void verifyIfAccountButtonsAreInteractible() {
         Assert.assertTrue(accountPage.checkAccountButtonsAreInteractible());
-}
+    }
 }
 

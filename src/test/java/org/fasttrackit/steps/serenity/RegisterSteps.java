@@ -7,6 +7,7 @@ import org.fasttrackit.pages.AccountPage;
 import org.fasttrackit.pages.HomePage;
 import org.fasttrackit.pages.LoginPage;
 import org.fasttrackit.pages.RegisterPage;
+import org.junit.Assert;
 
 public class RegisterSteps extends ScenarioSteps {
     private HomePage homePage;
@@ -45,5 +46,8 @@ public class RegisterSteps extends ScenarioSteps {
     public void verifyRegistryErrorMessage(String Error) {
         registerPage.verifyRegistryErrorMessage(Error);
     }
-
+@Step
+    public void verifyWeakPassAndHintAreVisible(){
+    Assert.assertTrue(registerPage.checkWeakPassAndHintareVisible());
+}
 }

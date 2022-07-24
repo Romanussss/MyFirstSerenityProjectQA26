@@ -81,4 +81,11 @@ public class CartTest extends BaseTest {
         cartSteps.typeIntoCouponField("fyjed");
         cartSteps.verifyAlreadyUsedCouponAllertMessage("Coupon code already applied!");
     }
+    @Test
+    public void verifyEmptyCartMessageIsDisplayed(){
+        loginSteps.doLogin(Constants.USER_EMAIL, Constants.USER_PASS);
+        accountSteps.goToCheckout();
+        cartSteps.verifyEmptyCartMessageIsDisplayed();
+
+    }
 }

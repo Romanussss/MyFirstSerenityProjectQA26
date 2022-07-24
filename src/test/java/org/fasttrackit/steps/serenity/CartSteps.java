@@ -77,5 +77,9 @@ public class CartSteps extends ScenarioSteps {
 
 
     }
+    @Step
+    public void verifyEmptyCartMessageIsDisplayed(){
+        Assert.assertTrue(cartPage.checkEmptyCartMessageIsDisplayed());
+    }
 
 }

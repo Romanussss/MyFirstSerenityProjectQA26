@@ -31,10 +31,11 @@ public class CartPage extends BasePage {
     private WebElementFacade couponAllertMessage;
     @FindBy(css = "input#coupon_code.input-text")
     private WebElementFacade couponCodeTextField;
+    @FindBy(css = "#post-11 > div > div > div")
+    private WebElementFacade emptyCartAlertMessage;
 
 
     public void verifySuccessMessage(String alertMessage) {
-//       successMessage.shouldContainOnlyText("View cart ”" +  productName + "” has been added to your cart.");
         viewCartButton.shouldContainOnlyText("View cart");
     }
 
@@ -73,17 +74,28 @@ public class CartPage extends BasePage {
         couponButton.click();
     }
 
-    public void verifyEmptyCouponMessage(String alertMessage){
+    public void verifyEmptyCouponMessage(String alertMessage) {
         couponAllertMessage.getText();
         couponAllertMessage.shouldContainOnlyText("Please enter a coupon code.");
     }
-public void useFakeCouponCode(String fakeCouponCode){
+
+    public void useFakeCouponCode(String fakeCouponCode) {
         couponCodeTextField.select();
-        typeInto(couponCodeTextField,fakeCouponCode);
+        typeInto(couponCodeTextField, fakeCouponCode);
 
-}
-public void couponAllertMessages(String couponAllert){
-       couponAllertMessage.shouldContainOnlyText(couponAllert);
+    }
 
-}
+    public void couponAllertMessages(String couponAllert) {
+        couponAllertMessage.shouldContainOnlyText(couponAllert);
+
+    }
+    public boolean checkEmptyCartMessageIsDisplayed(){
+        System.out.println(emptyCartAlertMessage.getText());
+        if (emptyCartAlertMessage.isCurrentlyVisible()
+                &&emptyCartAlertMessage.getText().equals("Checkout is not available whilst your cart is empty."))
+            return true;
+        else{
+            return false;
+        }
+    }
 }

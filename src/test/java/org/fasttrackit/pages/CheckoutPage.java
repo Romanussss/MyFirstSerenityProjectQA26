@@ -85,16 +85,18 @@ public class CheckoutPage extends BasePage {
         return checkoutPrice == expected;
     }
 
-public void checkReturningCustomerMessageBox(String message){returningCustomerMessageBox.shouldContainOnlyText(message);
+    public void checkReturningCustomerMessageBox(String message) {
+        returningCustomerMessageBox.shouldContainOnlyText(message);
 
-}
-public boolean checkRequiredFieldsAlert(){
+    }
+
+    public boolean checkRequiredFieldsAlert() {
         if (emptyRequiredFieldsAlert.isCurrentlyVisible())
             return true;
-        else{
+        else {
             return false;
         }
 
-}
+    }
 }
 
